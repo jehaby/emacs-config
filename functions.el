@@ -19,7 +19,7 @@
           (add-to-list 'auto-mode-alist (cons pattern mode)))
         patterns))
 
-; ask before closing start
+;;; ask before closing
 (defun ask-before-closing ()
   "Ask whether or not to close, and then close if y was pressed"
   (interactive)
@@ -29,7 +29,7 @@
         (save-buffers-kill-emacs))
     (message "Canceled exit")))
 
-;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+;;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
