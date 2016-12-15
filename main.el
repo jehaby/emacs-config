@@ -1,6 +1,8 @@
-(setq load-path (cons "~/Dropbox/configs/emacs/common" load-path))
+(setq load-path (cons "~/configs/emacs/" load-path))
 (load "functions.el") ;
 (load "keys.el") ;
+(load "colors.el") ;
+
 
 
 ;;; short yes or no
@@ -12,7 +14,7 @@
 ;;; melpa
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (when (< emacs-major-version 24)
 ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
@@ -51,4 +53,24 @@
 
 ; (require 'go-autocomplete)
 ;(require 'auto-complete-config)
-; (ac-config-default)
+					; (ac-config-default)
+
+
+;; from http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$"
+                          ""
+                          (shell-command-to-string "$SHELL --login -i -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (setq eshell-path-env path-from-shell) ; for eshell users
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
+
+
+(load "go.el") ;

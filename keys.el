@@ -2,6 +2,10 @@
 ;(global-set-key (kbd "C-x o") 'open-line)
 
 
+(setq revert-without-query '(".*"))
+(global-set-key (kbd "C-c r") 'revert-buffer)
+
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-x\C-b" 'buffer-menu)
@@ -9,3 +13,7 @@
 
 ;;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
+
+
+(eval-after-load 'go-mode
+  '(define-key go-mode-map [(kbd "C-c C-c")] 'comment-region))
