@@ -72,5 +72,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+
 
 (load "go.el") ;
