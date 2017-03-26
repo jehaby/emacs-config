@@ -2,6 +2,7 @@
 (load "functions.el") ;
 (load "keys.el") ;
 (load "colors.el") ;
+(load "highlight-indentation.el") ;
 
 
 

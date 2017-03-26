@@ -11,6 +11,8 @@
 (global-set-key "\C-x\C-b" 'buffer-menu)
 (global-set-key "\C-x\M-f" 'find-name-dired)
 
+(global-set-key "\C-c\C-r" 'rgrep)
+
 ;;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
